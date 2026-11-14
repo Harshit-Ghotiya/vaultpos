@@ -16,6 +16,13 @@ coverage/
 tmp/
 temp/
 
+# Local development & coding-agent handoff notes
+AGENTS.md
+CLAUDE.md
+HANDOFF*.md
+ROADMAP.md
+MANIFEST.sha256
+
 # Local encrypted vaults, exports & release bundles (never commit real store data)
 data.db
 *.db
