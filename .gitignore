@@ -1,3 +1,4 @@
+# Python artifacts
 __pycache__/
 *.py[cod]
 *.egg-info/
@@ -5,9 +6,34 @@ dist/
 build/
 .venv/
 .pytest_cache/
+
+# Node tooling & workspace state
+.DS_Store
+.opencode/
+node_modules/
+npm-debug.log*
+coverage/
+tmp/
+temp/
+
+# Local encrypted vaults, exports & release bundles (never commit real store data)
+data.db
 *.db
 *.sqlite
+*.sqlite3
 *.bak
 *_vault.json
 *_backup*.json
-.DS_Store
+*Backup*.json
+*Export*.csv
+*Report*.xls
+backups/
+exports/
+VaultPOS_*.csv
+VaultPOS_*.xls
+VaultPOS_A4_*.html
+VaultPOS_*.json
+ALL_CODE_BUNDLE.txt
+*.zip
+*.pdf
+*.png

@@ -1,0 +1,20 @@
+{
+  "name": "vaultpos",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Offline VaultPOS trampoline park and soft play POS development tooling",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "node tools/serve.mjs",
+    "test": "node --test",
+    "lint": "node tools/lint.mjs",
+    "check": "npm run lint && npm test",
+    "build:release": "node tools/build-release.mjs"
+  },
+  "devDependencies": {
+    "jsqr": "^1.4.0"
+  }
+}
