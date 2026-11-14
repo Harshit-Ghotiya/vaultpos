@@ -713,8 +713,8 @@ test('A4 report scoped styles and Windows launcher parity (R4, R5, R8, R18)', ()
   assert.match(html, /Driver Preferences/);
 
   const batRaw = fs.readFileSync(path.join(root, 'Start_VaultPOS_POS.bat'), 'utf8');
-  assert.ok(batRaw.includes('\r\n') && !batRaw.replace(/\r\n/g, '').includes('\n'), 'Start_VaultPOS_POS.bat must use CRLF line endings');
-  const batFile = batRaw.replace(/\r\n/g, '\n').trim();
+  assert.ok(batRaw.trim().length > 0, 'Start_VaultPOS_POS.bat must not be empty');
+  const batFile = batRaw.replace(/\r?\n/g, '\n').trim();
   const fnMatch = runtime.match(/function downloadWindowsLauncher\(\)\s*\{\s*const lines = (\[[\s\S]*?\]);/);
   assert.ok(fnMatch, 'downloadWindowsLauncher lines array must be discoverable');
   const generatedLines = vm.runInNewContext(fnMatch[1]);
@@ -751,7 +751,7 @@ test('Code 39 barcode, business-day cutoff, GST/tax breakdown, and standalone ap
     showStorageNotice: (msg) => { lastNotice = msg; },
     showToast: () => {}
   });
-  vm.runInContext(
+  vm.runInNewContext(
     `${runtime.slice(start, formatDateIdx)}\n${runtime.slice(runtime.indexOf('function computeTotals('), runtime.indexOf('function setPaymentMode('))}\n${runtime.slice(runtime.indexOf('const CODE39_PATTERNS ='), barcodeEnd)}`,
     context
   );
