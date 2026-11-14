@@ -1,0 +1,70 @@
+"""VaultPOS: Offline-first AES-256-GCM encrypted POS vault and 80mm thermal receipt engine."""
+
+from .crypto import (
+    BACKUP_SCHEMA_V2,
+    DEFAULT_PBKDF2_ITERATIONS,
+    VaultCryptoError,
+    aes256_gcm_decrypt,
+    aes256_gcm_encrypt,
+    decrypt_json_envelope,
+    derive_key,
+    encrypt_json_envelope,
+    hash_password,
+    verify_password,
+)
+from .receipt import (
+    build_escpos_receipt,
+    build_upi_uri,
+    encode_code39_modules,
+    format_thermal_receipt,
+    render_code39_ascii,
+)
+from .vault import (
+    ARCHIVE_INDEX_KEY,
+    CONFIG_STORAGE_KEY,
+    MIN_OWNER_PASSWORD_LENGTH,
+    PENDING_COMMIT_STORAGE_KEY,
+    QUARANTINE_PREFIX,
+    SEQ_STORAGE_KEY,
+    SESSIONS_STORAGE_KEY,
+    VAULT_STORAGE_KEY,
+    JsonFileStorage,
+    MemoryStorage,
+    VaultAuthError,
+    VaultReadOnlyError,
+    VaultStore,
+)
+
+__version__ = "0.2.0"
+
+__all__ = [
+    "ARCHIVE_INDEX_KEY",
+    "BACKUP_SCHEMA_V2",
+    "CONFIG_STORAGE_KEY",
+    "DEFAULT_PBKDF2_ITERATIONS",
+    "JsonFileStorage",
+    "MIN_OWNER_PASSWORD_LENGTH",
+    "MemoryStorage",
+    "PENDING_COMMIT_STORAGE_KEY",
+    "QUARANTINE_PREFIX",
+    "SEQ_STORAGE_KEY",
+    "SESSIONS_STORAGE_KEY",
+    "VAULT_STORAGE_KEY",
+    "VaultAuthError",
+    "VaultCryptoError",
+    "VaultReadOnlyError",
+    "VaultStore",
+    "__version__",
+    "aes256_gcm_decrypt",
+    "aes256_gcm_encrypt",
+    "build_escpos_receipt",
+    "build_upi_uri",
+    "decrypt_json_envelope",
+    "derive_key",
+    "encode_code39_modules",
+    "encrypt_json_envelope",
+    "format_thermal_receipt",
+    "hash_password",
+    "render_code39_ascii",
+    "verify_password",
+]
